@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.projeto.aluguel.veiculos.aluguelVeiculos.Model.AluguelModel;
@@ -35,6 +36,9 @@ public class AluguelController {
 
 	@Autowired
 	AluguelRepository aluguelRepository;
+	
+	private Long id;
+
 
 	@RequestMapping(value = "/cadastrar")
 	public String cadastrarAluguel(@ModelAttribute AluguelModel aluguelModel) {
@@ -108,6 +112,17 @@ public class AluguelController {
 		aluguelModel.setObservacao("veiculo Entregue");
 		aluguelRepository.saveAndFlush(aluguelModel);
 		return "redirect:/aluguel/listaAluguel";
+	}
+	
+	@RequestMapping(value = "/detalheVeiculo/{idVeiculo}")
+	public ModelAndView listaVeiculos(@PathVariable("idVeiculo") Long idVeiculo, Model model) {
+		System.out.println("TESTE************" + idVeiculo);
+		id = idVeiculo;
+		VeiculoModel veiculos = veiculoRepository.findByIdVeiculo(idVeiculo);
+		ModelAndView mv = new ModelAndView("listaVeiculos");	
+		mv.addObject("listaVeiculos", veiculos);
+		return mv ;
+		
 	}
 
 }

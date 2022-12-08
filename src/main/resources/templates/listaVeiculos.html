@@ -119,7 +119,7 @@
 						<th>modelo</th>
 						<th>Ano/Modelo</th>
 						<th>Qtd. de Portas</th>
-						<th colspan="2">Acessorios</th>
+						<th>Acessorios</th>
 						<th>Ação</th>
 					</tr>
 				</thead>
@@ -131,14 +131,11 @@
 						<td th:text="${veiculo.modelo}"></td>
 						<td th:text="${veiculo.anoModelo}"></td>
 						<td th:text="${veiculo.qtdPortas}"></td>
-						<td th:each="acessorio : ${veiculo.acessorios}"
-							th:text="${acessorio.nomeAcessorio}"></td>
-						<td colspan="2"><a class="nav-link blue col-2" title="Editar"
-							th:href="@{/veiculo/editar/{idVeiculo} (idVeiculo=${veiculo.idVeiculo})}"><i
-								class="material-icons">edit_note</i></a> <a
-							class="nav-link red col-2" title="Excluir"
-							th:href="@{/veiculo/excluir/{idVeiculo} (idVeiculo=${veiculo.idVeiculo})}"><i
-								class="material-icons">delete</i></a></td>
+						<td th:text="${veiculo.acessorios}"></td>
+						<td colspan="2">
+							<a class="blue" title="Editar" th:href="@{/veiculo/editar/{idVeiculo} (idVeiculo=${veiculo.idVeiculo})}"><i class="material-icons">edit_note</i></a> 
+							<a class="red" title="Excluir" th:href="@{/veiculo/excluir/{idVeiculo} (idVeiculo=${veiculo.idVeiculo})}"><i class="material-icons">delete</i></a>
+						</td>
 
 
 					</tr>

@@ -42,17 +42,15 @@ public class VeiculoModel implements Serializable {
 	@Column(nullable = false)
 	private Integer qtdPortas;
 
-	@ManyToMany()
-	@JoinTable(name = "veiculo_tem_acessorios", joinColumns = {
-			@JoinColumn(name = "veiculo_id") }, inverseJoinColumns = { @JoinColumn(name = "acessorios_id") })
-	private List<AcessoriosModel> acessorios;
+	
+	private String acessorios;
 
 	public VeiculoModel() {
 		super();
 	}
 
 	public VeiculoModel(Long idVeiculo, String placa, String fabricante, String modelo, Integer anoModelo,
-			Integer qtdPortas, List<AcessoriosModel> acessorios) {
+			Integer qtdPortas, String acessorios) {
 		super();
 		this.idVeiculo = idVeiculo;
 		this.placa = placa;
@@ -111,11 +109,11 @@ public class VeiculoModel implements Serializable {
 		this.qtdPortas = qtdPortas;
 	}
 
-	public List<AcessoriosModel> getAcessorios() {
+	public String getAcessorios() {
 		return acessorios;
 	}
 
-	public void setAcessorios(List<AcessoriosModel> acessorios) {
+	public void setAcessorios(String acessorios) {
 		this.acessorios = acessorios;
 	}
 

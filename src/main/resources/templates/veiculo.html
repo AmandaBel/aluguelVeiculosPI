@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Spring-Boot Básico</title>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
-    <link rel="icon" href="/image/favicon.png"/>
+<title>Spring-Boot Básico</title>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link rel="icon" href="/image/favicon.png" />
 
-    <!-- Bootstrap core CSS -->
-    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css" rel="stylesheet"/>
+<!-- Bootstrap core CSS -->
+<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/webjars/open-iconic/font/css/open-iconic-bootstrap.min.css"
+	rel="stylesheet" />
 
-    <!-- Custom styles for this template -->
-    <link href="/css/style.css" rel="stylesheet"/>
+<!-- Custom styles for this template -->
+<link href="/css/style.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -35,7 +37,7 @@
 
 	<div class="layout-main">
 
-<aside>
+		<aside>
 			<nav class="sidebar sidebar-open">
 
 				<ul class="nav nav-pills">
@@ -48,7 +50,7 @@
 							<span>Listar </span>
 					</a></li>
 				</ul>
-				
+
 
 				<ul class="nav nav-pills">
 					<li class="nav-item"><span class="nav-link active">Veiculo</span></li>
@@ -56,8 +58,9 @@
 						href="/veiculo/cadastrar"> <i class="oi oi-plus"></i> <span>Cadastrar
 						</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="/veiculo/listaVeiculos">
-							<i class="oi oi-spreadsheet"></i> <span>Listar </span>
+					<li class="nav-item"><a class="nav-link"
+						href="/veiculo/listaVeiculos"> <i class="oi oi-spreadsheet"></i>
+							<span>Listar </span>
 					</a></li>
 				</ul>
 
@@ -67,8 +70,9 @@
 						href="/aluguel/cadastrar"> <i class="oi oi-plus"></i> <span>Cadastrar
 						</span>
 					</a></li>
-					<li class="nav-item"><a class="nav-link" href="/aluguel/listaAluguel">
-							<i class="oi oi-spreadsheet"></i> <span>Listar </span>
+					<li class="nav-item"><a class="nav-link"
+						href="/aluguel/listaAluguel"> <i class="oi oi-spreadsheet"></i>
+							<span>Listar </span>
 					</a></li>
 				</ul>
 
@@ -79,151 +83,136 @@
 						</span>
 					</a></li>
 					<li class="nav-item"><a class="nav-link"
-						href="/usuario/listar"> <i class="oi oi-spreadsheet"></i>
-							<span>Listar </span>
+						href="/usuario/listar"> <i class="oi oi-spreadsheet"></i> <span>Listar
+						</span>
 					</a></li>
 				</ul>
 			</nav>
 		</aside>
 
-		
-	    <section class="layout-content">
-	
-	        <nav class="navbar navbar-expand-md bg-light">
-	            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-	                <ul class="navbar-nav mr-auto">
-	                    <li class="nav-item active">
-	                        <i class="oi oi-caret-right"></i>
-	                        <span>Cadastrar Veiculos</span>
-	                    </li>
-	                </ul>
-	            </div>
-	            <a class="btn btn-primary btn-md" href="/veiculo/listaVeiculos" role="button">
-	                <span class="oi oi-spreadsheet" title="Cadastro" aria-hidden="true"></span>
-	                <span>Listar Veiculos</span>
-	            </a>
-	        </nav>
-	
-	        <div class="container" id="cadastro">
-	           <form th:action="${veiculoModel.idVeiculo == null} ? @{/veiculo/salvar} : @{/veiculo/editar}"
-				th:object="${veiculoModel}" method="post">
-				<div class="form-group">
-					<input type="text" th:field="*{placa}" placeholder="Placa"
-						class="form-control mb-2" />
+
+		<section class="layout-content">
+
+			<nav class="navbar navbar-expand-md bg-light">
+				<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active"><i class="oi oi-caret-right"></i>
+							<span>Cadastrar Veiculos</span></li>
+					</ul>
 				</div>
-				<div class="form-group">
-				<label for="fabricante">Fabricante</label>
-					<select class="form-control"  th:field="*{fabricante}"
-						name="veiculo">
-						<option th:value="-1">Selecione</option>
-						<option th:value="Audi">Audi</option>
-						<option th:value="Ford">Ford</option>
-						<option th:value="Fiat">Fiat</option>
-						<option th:value="Peugeot">Peugeot</option>
-						<option th:value="Citroen">Citroen</option>
-						<option th:value="Mitsubishi">Mitsubishi</option>
-						<option th:value="Jeep">Jeep</option>
-						<option th:value="Mercedes">Mercedes</option>
-						<option th:value="Jac">Jac</option>
-						<option th:value="Honda">Honda</option>
-						<option th:value="Hyundai">Hyundai</option>
-						<option th:value="Yamaha">Yamaha</option>
-						<option th:value="BMW">BMW</option>
-						<option th:value="Porche">Porche</option>
-						<option th:value="Volkswagen">Volkswagen</option>
-						<option th:value="Chevrolet">Chevrolet</option>
-						<option th:value="Toyota">Toyota</option>
-						<option th:value="Nissan">Nissan</option>
-						<option th:value="Suzuki">Suzuki</option>
-						<option th:value="Land_Rover">Land Rover</option>
-						<option th:value="Renault">Renault</option>
-						<option th:value="Jaguar">Jaguar</option>
-						<option th:value="Ferrari">Ferrari</option>
-						<option th:value="Volvo">Volvo</option>
-						<option th:value="Dodge">Dodge</option>
-					</select>
-					<!--  <input type="text" th:field="*{fabricante}"
-						placeholder="fabricante" class="form-control mb-2" />-->
-				</div>
-				<div class="form-group">
-					<input type="text" th:field="*{modelo}" placeholder="modelo"
-						class="form-control mb-2" />
-				</div>
-				<div class="form-group">
-					<input type="number" th:field="*{anoModelo}"
-						placeholder="Ano/Modelo"
-						class="form-control mb-2" />
-				</div>
-				<div class="form-group">
-					<input type="number" th:field="*{qtdPortas}"
-						placeholder="Quantidade de Portas" class="form-control mb-2" />
-				</div>
+				<a class="btn btn-primary btn-md" href="/veiculo/listaVeiculos"
+					role="button"> <span class="oi oi-spreadsheet" title="Cadastro"
+					aria-hidden="true"></span> <span>Listar Veiculos</span>
+				</a>
+			</nav>
 
-
-
-				<div class="card">
-					<h5 class="card-header text-white bg-dark">Acessórios</h5>
-
-					<div class="card-body">
-
-						<ol>
-							<li th:each="acessorio : ${checkAcessorios}">
-								<div class="form-check form-check-inline">
-									<input class="form-check-input" type="checkbox"
-										th:field="*{acessorios}" th:value=${acessorio.idAcessorio}>
-									<label class="form-check-label"
-										th:text="${acessorio.nomeAcessorio}" for="inlineCheckbox1"></label>
-								</div>
-							</li>
-						</ol>
-
+			<div class="container" id="cadastro">
+				<form
+					th:action="${veiculoModel.idVeiculo == null} ? @{/veiculo/salvar} : @{/veiculo/editar}"
+					th:object="${veiculoModel}" method="post">
+					<div class="form-group">
+						<input type="text" th:field="*{placa}" placeholder="Placa"
+							class="form-control mb-2" />
 					</div>
-				</div>
+					<div class="form-group">
+						<label for="fabricante">Fabricante</label> <select
+							class="form-control" th:field="*{fabricante}" name="veiculo">
+							<option th:value="-1">Selecione</option>
+							<option th:value="Audi">Audi</option>
+							<option th:value="Ford">Ford</option>
+							<option th:value="Fiat">Fiat</option>
+							<option th:value="Peugeot">Peugeot</option>
+							<option th:value="Citroen">Citroen</option>
+							<option th:value="Mitsubishi">Mitsubishi</option>
+							<option th:value="Jeep">Jeep</option>
+							<option th:value="Mercedes">Mercedes</option>
+							<option th:value="Jac">Jac</option>
+							<option th:value="Honda">Honda</option>
+							<option th:value="Hyundai">Hyundai</option>
+							<option th:value="Yamaha">Yamaha</option>
+							<option th:value="BMW">BMW</option>
+							<option th:value="Porche">Porche</option>
+							<option th:value="Volkswagen">Volkswagen</option>
+							<option th:value="Chevrolet">Chevrolet</option>
+							<option th:value="Toyota">Toyota</option>
+							<option th:value="Nissan">Nissan</option>
+							<option th:value="Suzuki">Suzuki</option>
+							<option th:value="Land_Rover">Land Rover</option>
+							<option th:value="Renault">Renault</option>
+							<option th:value="Jaguar">Jaguar</option>
+							<option th:value="Ferrari">Ferrari</option>
+							<option th:value="Volvo">Volvo</option>
+							<option th:value="Dodge">Dodge</option>
+						</select>
+						<!--  <input type="text" th:field="*{fabricante}"
+						placeholder="fabricante" class="form-control mb-2" />-->
+					</div>
+					<div class="form-group">
+						<input type="text" th:field="*{modelo}" placeholder="modelo"
+							class="form-control mb-2" />
+					</div>
+					<div class="form-group">
+						<input type="number" th:field="*{anoModelo}"
+							placeholder="Ano/Modelo" class="form-control mb-2" />
+					</div>
+					<div class="form-group">
+						<input type="number" th:field="*{qtdPortas}"
+							placeholder="Quantidade de Portas" class="form-control mb-2" />
+					</div>
 
-				<br>
+					<div class="form-group">
+						<textarea type="number" th:field="*{acessorios}"
+							placeholder="acessorios" class="form-control mb-2"></textarea>
+					</div>
 
-				<input type="hidden" id="idVeiculo" th:field="*{idVeiculo}">
-				<button type="submit"
-					class="btn bg-dark btn-lg btn-block text-white">Salvar
-					Veiculo</button>
 
-				<br>
-				<!--  		<div class="alert alert-success" role="alert">
+
+
+
+
+					<input type="hidden" id="idVeiculo" th:field="*{idVeiculo}">
+					<button type="submit"
+						class="btn bg-dark btn-lg btn-block text-white">Salvar
+						Veiculo</button>
+
+					<br>
+					<!--  		<div class="alert alert-success" role="alert">
 					<strong>Inclusão efetuada com sucesso!</strong>
 
 				</div> -->
-			</form>
-	        </div>
-	    </section>
+				</form>
+			</div>
+		</section>
+
 
 	</div>
-	
-    <footer class="layout-footer">
-        <div class="container">
-            <span class="footer-copy">&copy; 2022 Amanda Beltoso. Todos os direitos reservados.</span>
-        </div>
-    </footer>
 
-<!-- Bootstrap core JavaScript
+
+	<footer class="layout-footer">
+		<div class="container">
+			<span class="footer-copy">&copy; 2022 Amanda Beltoso. Todos os
+				direitos reservados.</span>
+		</div>
+	</footer>
+
+	<!-- Bootstrap core JavaScript
 ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="/webjars/jquery/jquery.min.js"></script>
-<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
-<script
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript">
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="/webjars/jquery/jquery.min.js"></script>
+	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$('[data-toggle="popover"]').popover();
+		});
 
-    $(function () {
-        $('[data-toggle="popover"]').popover();
-    });
-    
-	$(document).ready(function(){
-	    $(".navbar-toggle").click(function(){
-	        $(".sidebar").toggleClass("sidebar-open");
-	    })
-	});
-
-</script>
+		$(document).ready(function() {
+			$(".navbar-toggle").click(function() {
+				$(".sidebar").toggleClass("sidebar-open");
+			})
+		});
+	</script>
 </body>
-</html>		
+</html>
