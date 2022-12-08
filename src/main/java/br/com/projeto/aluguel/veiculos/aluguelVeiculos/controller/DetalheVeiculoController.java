@@ -35,16 +35,7 @@ public class DetalheVeiculoController {
         return "detalheVeiculo";
     }
 
-	@RequestMapping(value = "/detalheVeiculo/{idVeiculo}")
-	public ModelAndView listaVeiculos(@PathVariable("idVeiculo") Long idVeiculo, Model model) {
-		System.out.println("TESTE************" + idVeiculo);
-		id = idVeiculo;
-		VeiculoModel veiculos = veiculoRepository.findByIdVeiculo(idVeiculo);
-		ModelAndView mv = new ModelAndView("listaVeiculos");	
-		mv.addObject("listaVeiculos", veiculos);
-		return mv ;
-		
-	}
+
 	
 	
 	@ModelAttribute("listaClientes")

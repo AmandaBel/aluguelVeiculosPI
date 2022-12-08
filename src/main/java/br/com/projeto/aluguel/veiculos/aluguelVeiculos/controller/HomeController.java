@@ -25,17 +25,17 @@ public class HomeController {
         return "index";
 	}
 
-	@RequestMapping(value = "/verificarLogin", method = RequestMethod.POST)
-	public String verificarLogin(@ModelAttribute("login") UsuarioModel usuarioModel) {
-		boolean login = usuarioRepository.existsById(usuarioModel.getLogin());
-		boolean senha = usuarioRepository.existsById(usuarioModel.getSenha());
-		String retorno;
-		if (login == true || senha == true){
-			retorno = "index";
-		}else
-			retorno = "redirect:/litaVeiculos";
-		
-			return retorno;
-	}
+//	@RequestMapping(value = "/verificarLogin", method = RequestMethod.POST)
+//	public String verificarLogin(@ModelAttribute("login") UsuarioModel usuarioModel) {
+//		boolean login = usuarioRepository.existsById(usuarioModel.getLogin());
+//		boolean senha = usuarioRepository.existsById(usuarioModel.getSenha());
+//		String retorno;
+//		if (login == true || senha == true){
+//			retorno = "index";
+//		}else
+//			retorno = "redirect:/litaVeiculos";
+//		
+//			return retorno;
+//	}
 
 }
