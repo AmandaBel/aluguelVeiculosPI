@@ -15,15 +15,21 @@ import br.com.projeto.aluguel.veiculos.aluguelVeiculos.repository.ClienteReposit
 import br.com.projeto.aluguel.veiculos.aluguelVeiculos.repository.UsuarioRepository;
 
 @Controller
-public class HomeController {
+public class LoginController {
 
 	@Autowired
 	UsuarioRepository usuarioRepository;
-
+	
 	@RequestMapping(value = "/")
-    public String login(@ModelAttribute UsuarioModel usuarioModel){
+    public String home(){
         return "index";
 	}
+
+	@RequestMapping(value = "/login")
+    public String login(){
+        return "login";
+	}
+	
 
 //	@RequestMapping(value = "/verificarLogin", method = RequestMethod.POST)
 //	public String verificarLogin(@ModelAttribute("login") UsuarioModel usuarioModel) {

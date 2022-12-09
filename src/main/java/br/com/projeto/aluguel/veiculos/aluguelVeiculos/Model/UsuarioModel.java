@@ -1,6 +1,7 @@
 package br.com.projeto.aluguel.veiculos.aluguelVeiculos.Model;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "usuario")
@@ -90,5 +94,6 @@ public class UsuarioModel implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
 
 }
