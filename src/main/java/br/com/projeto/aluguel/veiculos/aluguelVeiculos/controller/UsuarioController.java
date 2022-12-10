@@ -1,6 +1,7 @@
 package br.com.projeto.aluguel.veiculos.aluguelVeiculos.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,12 +39,15 @@ public class UsuarioController {
 
 	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
 	public String saveCliente(@ModelAttribute("usuario") UsuarioModel usuarioModel) {
-		UsuarioModel usuarioValida = usuarioRepository.findByEmail(usuarioModel.getEmail());
-		if (usuarioValida == null || !usuarioValida.getNome().equalsIgnoreCase(usuarioModel.getEmail())) {
+//		usuarioModel.setSenha(encoder.encode(usuarioModel.getSenha()));
+		UsuarioModel usuarioValida = usuarioRepository.findByLogin(usuarioModel.getLogin());
+		if (usuarioValida == null || !usuarioValida.getEmail().equalsIgnoreCase(usuarioModel.getEmail()) || !usuarioValida.getLogin().equalsIgnoreCase(usuarioModel.getLogin())) {
+
 			usuarioRepository.save(usuarioModel);
-		}else
-			System.out.println("Usuário já cadastrado no sistema");
-		
+		} else {
+			System.out.println("*****************Usuário já cadastrado no sistema");
+		}
+
 		return "redirect:/usuario/cadastrar";
 	}
 
@@ -52,6 +56,5 @@ public class UsuarioController {
 		model.addAttribute("listaUsuarios", usuarioRepository.findAll());
 		return "listaUsuarios";
 	}
-	
 
 }

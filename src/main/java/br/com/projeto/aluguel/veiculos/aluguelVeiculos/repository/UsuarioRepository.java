@@ -7,7 +7,7 @@ import br.com.projeto.aluguel.veiculos.aluguelVeiculos.Model.UsuarioModel;
 
 public interface UsuarioRepository extends JpaRepository<UsuarioModel, Long>{
 	
-	@Query("select email from UsuarioModel where email=:email")
-	UsuarioModel findByEmail(String email);	
+	@Query("select login from UsuarioModel where login=:login")
+	UsuarioModel findByLogin(String login);	
 
 }

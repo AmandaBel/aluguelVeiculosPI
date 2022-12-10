@@ -24,7 +24,7 @@ public class WebSecurityConfig{
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http
+		http.csrf().disable()
 		.authorizeHttpRequests((requests) -> requests
 		.anyRequest().authenticated().and())
 				.formLogin(form -> form.loginPage("/login").permitAll());
@@ -42,7 +42,7 @@ public class WebSecurityConfig{
 				User.withDefaultPasswordEncoder().
 				username("amanda")
 				.password("amanda")
-				.roles("USER")
+				.roles("ADMIN")
 				.build();
 
 //		auth.jdbcAuthentication()
